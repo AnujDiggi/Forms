@@ -44,6 +44,15 @@ Template-Driven and Reactive Forms implementation.
 Form validation with different types of validation (required fields, email pattern, custom validation).
 Routing: Navigate between the Home page and Registration page via a navigation menu in the header.
 Header Navigation: Contains links to the Home and Registration components.
+Custom Styling:
+    Form styles are written inside the styles.css.
+    Navbar styles are located in the app.component.css.
+
+## Routing:
+
+Header contains links to navigate between:
+    Home: The main page of the application.
+    Registration: Page with the form (template-driven or reactive).
 
 ## Validation:
 
