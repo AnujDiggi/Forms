@@ -1,0 +1,75 @@
+<div class="Form-Container">
+    <div class="form-title">
+        <h2>Template Form</h2>
+    </div>
+    <form class="form-selector-container" #form="ngForm">
+        <div class="form-data">
+            <label class="form-label">First Name</label>
+            <input type="text" name="firstName" #firstName="ngModel" [(ngModel)]="studentObj.firstName"
+                class="form-control" placeholder="First Name" autocomplete="off" required minlength="3">
+            <div class="form-validation">
+                @if(firstName.touched && firstName.errors?.['required']) {
+                <span>This is required</span>
+                }
+                @else if(firstName.touched && firstName.errors?.['minlength'])
+                {
+                <span>Minimum 3 characters required</span>
+                }
+            </div>
+        </div>
+        <div class="form-data">
+            <label class="form-label">Last Name</label>
+            <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="studentObj.lastName"
+                class="form-control" placeholder="Last Name" autocomplete="off" required minlength="3">
+            <div class="form-validation">
+                @if(lastName.touched && lastName.errors?.['required']) {
+                <span>This is required</span>
+                }
+                @else if(lastName.touched && lastName.errors?.['minlength'])
+                {
+                <span>Minimum 3 characters required</span>
+                }
+            </div>
+        </div>
+        <div class="form-data">
+            <label class="form-label">Email</label>
+            <input type="text" name="email" [(ngModel)]="studentObj.email" class="form-control" placeholder="Email"
+                autocomplete="off">
+        </div>
+        <div class="form-data">
+            <label class="form-label">Phone</label>
+            <input type="number" name="phone" [(ngModel)]="studentObj.phone" class="form-control" placeholder="Phone"
+                autocomplete="off" required>
+        </div>
+        <div class="form-data">
+            <label class="form-label">city</label>
+            <input type="text" name="city" [(ngModel)]="studentObj.city" class="form-control" placeholder="City"
+                autocomplete="off" required>
+        </div>
+        <div class="form-data">
+            <label class="form-label">State</label>
+            <select class="form-select" name="state" [(ngModel)]="studentObj.state" required>
+                <option>Choose..</option>
+                <option>Bihar</option>
+                <option>Karnataka</option>
+                <option>Chennai</option>
+            </select>
+        </div>
+        <div class="form-data">
+            <label class="form-label">Postal Code</label>
+            <input type="number" name="postalCode" [(ngModel)]="studentObj.postalCode" class="form-control"
+                placeholder="Postal Code" autocomplete="off" required>
+        </div>
+        <div class="submit-button">
+            <button class="btn reset-button" (click)="resetButton()">Reset</button>
+            <button class="btn" [disabled]="form.invalid" (click)="onSubmit()">Submit</button>
+        </div>
+    </form>
+    <div class="back-button">
+        <button class="btn" [routerLink]="['/reactive-form']">Go To Reactive Form</button>
+    </div>
+    <div>
+        {{formvalue|json}}
+    </div>
+
+</div>

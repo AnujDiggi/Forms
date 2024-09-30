@@ -1,0 +1,88 @@
+<div class="Form-Container">
+    <div class="form-title">
+        <h2>Reactive Form</h2>
+    </div>
+    <form class="form-selector-container" [formGroup]="studentForm">
+        <div class="form-data">
+            <label class="form-label">First Name</label>
+            <input type="text" formControlName="firstName" class="form-control" placeholder="First Name">
+            <div class="danger">
+                @if(studentForm.controls['firstName'].touched && studentForm.controls['firstName'].errors?.['required'])
+                {
+                <span>This is required</span>
+                }
+                @else if(studentForm.controls['firstName'].touched &&
+                studentForm.controls['firstName'].errors?.['minlength'])
+                {
+                <span>Min 4 characters is required</span>
+                }
+            </div>
+        </div>
+        <div class="form-data">
+            <label class="form-label">Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name">
+            <div class="danger">
+                @if(studentForm.controls['lastName'].touched && studentForm.controls['lastName'].errors?.['required'])
+                {
+                <span>This is required</span>
+                }
+                @else if(studentForm.controls['lastName'].touched &&
+                studentForm.controls['lastName'].errors?.['minlength'])
+                {
+                <span>Min 4 characters is required</span>
+                }
+            </div>
+        </div>
+        <div class="form-data">
+            <label class="form-label">Email</label>
+            <input type="text" formControlName="email" class="form-control" placeholder="Email">
+            <div class="danger">
+            @if(studentForm.controls['email'].touched && studentForm.controls['email'].errors?.['email'])
+            {
+            <span>Email is Not Valid</span>
+            }
+            </div>
+        </div>
+        <div class="form-data">
+            <label class="form-label">Phone</label>
+            <input type="number" formControlName="phone" class="form-control" placeholder="Phone">
+            <div class="danger">
+                @if(studentForm.controls['phone'].touched && studentForm.controls['phone'].errors?.['required'])
+                {
+                <span>This is required</span>
+                }
+                @else if(studentForm.controls['phone'].touched && studentForm.controls['phone'].errors?.['minlength'])
+                {
+                <span>Total Phone Number is 10 required </span>
+                }
+            </div>
+        </div>
+        <div class="form-data">
+            <label class="form-label">city</label>
+            <input type="text" formControlName="city" class="form-control" placeholder="City">
+        </div>
+        <div class="form-data">
+            <label class="form-label">State</label>
+            <select class="form-select" formControlName="state">
+                <option>Choose..</option>
+                <option>Bihar</option>
+                <option>Karnataka</option>
+                <option>Chennai</option>
+            </select>
+        </div>
+        <div class="form-data">
+            <label class="form-label">Postal Code</label>
+            <input type="number" formControlName="postalCode" class="form-control" placeholder="Postal Code">
+        </div>
+        <div class="submit-button">
+            <button class="btn reset-button" (click)="resetData()">Reset</button>
+            <button class="btn" type="button" [disabled]="studentForm.invalid" (click)="onSubmit()" >Submit</button>
+        </div>
+    </form>
+    <div class="back-button">
+        <button class="btn" [routerLink]="['/template']" >Go To Templet Form</button>
+    </div>
+    <div>
+        {{formValue | json}}
+    </div>
+</div>
