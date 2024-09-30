@@ -50,6 +50,9 @@ Header Navigation: Contains links to the Home and Registration components.
 Both Template-Driven and Reactive Forms include validation for fields like required inputs, email formats, and custom validation.
 Error messages are shown when form controls are invalid, guiding the user to correct the input.
 
+## Screenshot
+
+![image](https://github.com/user-attachments/assets/38962186-474b-4f2d-b7ef-491cdf25c301)
 
 
 
